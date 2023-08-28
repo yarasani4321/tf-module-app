@@ -101,6 +101,7 @@ resource "aws_lb_target_group" "public" {
   count = var.component == "frontend" ? 1 : 0
   name     = "${local.name_prefix}-public"
   port     = var.port
+  target_type = "ip"
   protocol = "HTTP"
   vpc_id   = var.vpc_id
 }
