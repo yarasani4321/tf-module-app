@@ -126,8 +126,11 @@ resource "aws_launch_template" "main" {
     device_name = "/dev/sda1"
 
     ebs {
-      encrypted             = true
-      kms_key_id            = "dce90622-5a23-4f82-a639-be841f534702"
+      delete_on_termination = "true"
+      encrypted             = "true"
+      kms_key_id            = var.kms_key_id
+      volume_size           = 10
+      volume_type           = "gp2"
     }
   }
 
