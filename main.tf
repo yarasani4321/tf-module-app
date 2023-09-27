@@ -249,7 +249,7 @@ resource "aws_lb_listener_rule" "public" {
 
   condition {
     host_header {
-      values = ["${var.env}.rdevopsb72.online"]
+      values = ["${var.env == "prod" ? "www" : var.env}.rdevopsb72.online"]
     }
   }
 }
